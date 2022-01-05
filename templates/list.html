@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% for message in messages %}
+    <p>{{ message }}<p>
+  {% endfor %}
+{% endwith %}
+
+<h3>Sensor Data</h3>
+<a href="/sensorData/add" class="btn btn-success btn-sm">
+  <i class="glyphicon glyphicon-plus"></i>
+  Add data
+</a>
+
+{% for data in sensorData %}
+<div class="media">
+  <a href="/sensorData/{{data.id}}">
+    <div class="media-left">
+
+    </div>
+    <div class="media-body">
+      <h4>Time: {{data.time}}</h4>
+      <p>Sensor 1 : {{data.sensor1}}</p>
+      <p>Sensor 2 : {{data.sensor2}}</p>
+      <p>Sensor 3 : {{data.sensor3}}</p>
+      <p>Sensor 4 : {{data.sensor4}}</p>
+    </div>
+  </a>
+</div>
+{% else %}
+<p>No Sensor Data found</p>
+{% endfor %}
+
+{% if last_time %}
+<nav>
+  <ul class="pager">
+    <li><a href="?start_after={{last_time}}">More</a></li>
+  </ul>
+</nav>
+{% endif %}
+
+{% endblock %}

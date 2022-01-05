@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Data</h3>
+
+<div class="btn-group">
+  <a href="/sensorData/{{data.id}}/edit" class="btn btn-primary btn-sm">
+    <i class="glyphicon glyphicon-edit"></i>
+    Edit data
+  </a>
+  <a href="/sensorData/{{data.id}}/delete" class="btn btn-danger btn-sm">
+    <i class="glyphicon glyphicon-trash"></i>
+    Delete data
+  </a>
+</div>
+
+<div class="media">
+  <div class="media-left">
+  </div>
+  <div class="media-body">
+    <h4>
+      Time: {{data.Time}}
+    </h4>
+    <p>Sensor 1 : {{data.sensor1}}</p>
+    <p>Sensor 2 : {{data.sensor2}}</p>
+    <p>Sensor 3 : {{data.sensor3}}</p>
+    <p>Sensor 4 : {{data.sensor4}}</p>
+  </div>
+</div>
+
+{% endblock %}

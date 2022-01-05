@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>{{action}} data</h3>
+
+<form method="POST" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="time">Time</label>
+    <input type="datetime-local" name="time" id="time" value="{{data.time}}" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="sensor1">Sensor 1</label>
+    <input type="number" step="0.001" name="sensor1" id="sensor1" value="{{data.sensor1}}" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="sensor2">Sensor 2</label>
+    <input type="number" step="0.001" name="sensor2" id="sensor2" value="{{data.sensor2}}" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="sensor3">Sensor 3</label>
+    <input  type="number" step="0.001" name="sensor3" id="sensor3" value="{{data.sensor3}}" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="sensor4">Sensor 4</label>
+    <input type="number" step="0.001" name="sensor4" id="sensor4" value="{{data.sensor4}}" class="form-control"/>
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+{% endblock %}
