@@ -2,44 +2,61 @@
 
 {% block content %}
 
-<h3>Dashboard</h3>
+<h2>Dashboard</h2>
+<hr />
+<h4 class="text-info">Latest 3 measures</h4>
+<div class="container">
+    <div class="row">
+        {% for data in latest %}
+        <div class="card border-info mb-3" style="max-width: 18rem; margin: 10px;">
+            <div class="card-header">Time: {{ data.time }}</div>
+            <div class="card-body text-info">
+                <h5 class="card-title">Measures</h5>
+                <p class="card-text">Sensor 1 : {{data.sensor1}}</p>
+                <p class="card-text">Sensor 2 : {{data.sensor2}}</p>
+                <p class="card-text">Sensor 3 : {{data.sensor3}}</p>
+                <p class="card-text">Sensor 4 : {{data.sensor4}}</p>
+            </div>
+        </div>
+        {% else %}
+        <p>No Sensor Data found</p>
+        {% endfor %}
+    </div>
 
-<div class="media">
-  <div class="media-body">
-    <div class="media-left">
-        <h4>
-            Latest values
-        </h4>
-        <p>Time: {{latest["time"]}}</p>
-        <p>Sensor 1: {{latest["sensor1"]}}</p>
-        <p>Sensor 2: {{latest["sensor2"]}}</p>
-        <p>Sensor 3: {{latest["sensor3"]}}</p>
-        <p>Sensor 4: {{latest["sensor4"]}}</p>
-    </div>
-    <div class="media-right">
-        <h4>Highest values</h4>
-        <h5>
-        Sensor 1
-        </h5>
-        <p>Highest value: {{data1["sensor1"]}}</p>
-        <p>Time: {{data1["time"]}}</p>
-        <h5>
-            Sensor 2
-        </h5>
-        <p>Highest value: {{data2["sensor2"]}}</p>
-        <p>Time: {{data2["time"]}}</p>
-        <h5>
-            Sensor 3
-        </h5>
-        <p>Highest value: {{data3["sensor3"]}}</p>
-        <p>Time: {{data3["time"]}}</p>
-        <h5>
-            Sensor 4
-        </h5>
-        <p>Highest value: {{data4["sensor4"]}}</p>
-        <p>Time: {{data4["time"]}}</p>
-    </div>
-  </div>
+    <br />
+    <br />
+    <h4 class="text-info">Highest values</h4>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Sensor</th>
+                <th scope="col">Value</th>
+                <th scope="col">Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{ data1["sensor1"] }}</td>
+                <td>{{ data1["time"] }} </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>{{ data2["sensor2"] }}</td>
+                <td>{{ data2["time"] }} </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>{{ data3["sensor3"] }}</td>
+                <td>{{ data3["time"] }} </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>{{ data4["sensor4"] }}</td>
+                <td>{{ data4["time"] }} </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}

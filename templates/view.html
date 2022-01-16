@@ -5,28 +5,25 @@
 <h3>Data</h3>
 
 <div class="btn-group">
-  <a href="/sensorData/{{data.id}}/edit" class="btn btn-primary btn-sm">
+  <a style="width: 120px; margin: 10px; font-size: 17px" href="/sensorData/{{data.id}}/edit" class="btn btn-primary btn-sm">
     <i class="glyphicon glyphicon-edit"></i>
     Edit data
   </a>
-  <a href="/sensorData/{{data.id}}/delete" class="btn btn-danger btn-sm">
+  <a style="width: 120px; margin: 10px; font-size: 17px" href="/sensorData/{{data.id}}/delete" class="btn btn-danger btn-sm">
     <i class="glyphicon glyphicon-trash"></i>
     Delete data
   </a>
 </div>
 
-<div class="media">
-  <div class="media-left">
-  </div>
-  <div class="media-body">
-    <h4>
-      Time: {{data.time}}
-    </h4>
-    <p>Sensor 1 : {{data.sensor1}}</p>
-    <p>Sensor 2 : {{data.sensor2}}</p>
-    <p>Sensor 3 : {{data.sensor3}}</p>
-    <p>Sensor 4 : {{data.sensor4}}</p>
-  </div>
+<div class="card border-dark mb-3" style="max-width: 18rem; margin: 10px;">
+    <div class="card-header">Time: {{ data.time }}</div>
+    <div class="card-body text-dark">
+        <h5 class="card-title">Measures</h5>
+        <p class="card-text">Sensor 1 : {{data.sensor1}}</p>
+        <p class="card-text">Sensor 2 : {{data.sensor2}}</p>
+        <p class="card-text">Sensor 3 : {{data.sensor3}}</p>
+        <p class="card-text">Sensor 4 : {{data.sensor4}}</p>
+    </div>
 </div>
 
 {% endblock %}

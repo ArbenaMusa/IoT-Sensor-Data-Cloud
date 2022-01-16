@@ -70,6 +70,6 @@ def highest_sensor(sensor):
 
 def latest_values():
     db = firestore.Client()
-    docs = db.collection(u'Data').order_by("time", direction=firestore.Query.DESCENDING).limit(1).stream()
-    return list(map(document_to_dict, docs))[0]
+    docs = db.collection(u'Data').order_by("time", direction=firestore.Query.DESCENDING).limit(3).stream()
+    return list(map(document_to_dict, docs))
 
