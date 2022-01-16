@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Dashboard</h3>
+
+<div class="media">
+  <div class="media-body">
+    <div class="media-left">
+        <h4>
+            Latest values
+        </h4>
+        <p>Time: {{latest["time"]}}</p>
+        <p>Sensor 1: {{latest["sensor1"]}}</p>
+        <p>Sensor 2: {{latest["sensor2"]}}</p>
+        <p>Sensor 3: {{latest["sensor3"]}}</p>
+        <p>Sensor 4: {{latest["sensor4"]}}</p>
+    </div>
+    <div class="media-right">
+        <h4>Highest values</h4>
+        <h5>
+        Sensor 1
+        </h5>
+        <p>Highest value: {{data1["sensor1"]}}</p>
+        <p>Time: {{data1["time"]}}</p>
+        <h5>
+            Sensor 2
+        </h5>
+        <p>Highest value: {{data2["sensor2"]}}</p>
+        <p>Time: {{data2["time"]}}</p>
+        <h5>
+            Sensor 3
+        </h5>
+        <p>Highest value: {{data3["sensor3"]}}</p>
+        <p>Time: {{data3["time"]}}</p>
+        <h5>
+            Sensor 4
+        </h5>
+        <p>Highest value: {{data4["sensor4"]}}</p>
+        <p>Time: {{data4["time"]}}</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
