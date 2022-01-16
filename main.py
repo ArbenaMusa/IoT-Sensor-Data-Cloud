@@ -44,6 +44,14 @@ def list():
 
     return render_template('list.html', sensorData=sensorData, last_time=last_time)
 
+@app.route('/dashboard')
+def dashboard():
+    latest = firestore.latest_values()
+    data1 = firestore.highest_sensor('sensor1')
+    data2 = firestore.highest_sensor('sensor2')
+    data3 = firestore.highest_sensor('sensor3')
+    data4 = firestore.highest_sensor('sensor4')
+    return render_template('dashboard.html', latest = latest, data1 = data1, data2 = data2, data3 = data3, data4 = data4)
 
 @app.route('/sensorData/<data_id>')
 def view(data_id):

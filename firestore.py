@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# [START bookshelf_firestore_client_import]
 from google.cloud import firestore
-# [END bookshelf_firestore_client_import]
-
 
 def document_to_dict(doc):
     if not doc.exists:
@@ -45,11 +42,9 @@ def next_page(limit=10, start_after=None):
 
 
 def read(data_id):
-    # [START bookshelf_firestore_client]
     db = firestore.Client()
     data_ref = db.collection(u'Data').document(data_id)
     snapshot = data_ref.get()
-    # [END bookshelf_firestore_client]
     return document_to_dict(snapshot)
 
 
@@ -67,3 +62,14 @@ def delete(id):
     db = firestore.Client()
     data_ref = db.collection(u'Data').document(id)
     data_ref.delete()
+
+def highest_sensor(sensor):
+    db = firestore.Client()
+    docs = db.collection(u'Data').order_by(sensor, direction=firestore.Query.DESCENDING).limit(1).stream()
+    return list(map(document_to_dict, docs))[0]
+
+def latest_values():
+    db = firestore.Client()
+    docs = db.collection(u'Data').order_by("time", direction=firestore.Query.DESCENDING).limit(1).stream()
+    return list(map(document_to_dict, docs))[0]
+
